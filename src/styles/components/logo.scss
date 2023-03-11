@@ -1,0 +1,15 @@
+.logo {
+  cursor: default;
+  font-weight: 400;
+  letter-spacing: 0.7px;
+  color: var(--color-primary);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  @media screen and (max-width: $bp-small) {
+    display: none;
+  }
+}

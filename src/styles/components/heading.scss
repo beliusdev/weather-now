@@ -1,0 +1,38 @@
+.heading {
+  cursor: default;
+  font-size: 4.4rem;
+  font-weight: 400;
+  transition: all 0.5s;
+  text-align: center;
+  margin-bottom: 5rem;
+  animation: heading 1s;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  background-clip: text;
+  color: transparent;
+
+  &:hover {
+    transform: scale(1.03) translateY(-3px);
+  }
+
+  @media screen and (max-width: $bp-small) {
+    font-size: 4.1rem;
+  }
+
+  @media screen and (max-width: $bp-smaller) {
+    font-size: 3.5rem;
+  }
+}
+
+@keyframes heading {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
