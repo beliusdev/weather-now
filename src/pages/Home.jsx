@@ -1,10 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect } from "react";
+import { FaLocationDot } from "react-icons/fa6";
 
-import { DataContext } from '../context/Data';
+import { DataContext } from "../context/Data";
 
-import Heading from '../components/Heading';
-import Container from '../components/Container';
-import { SearchTermContext } from '../context/SearchTerm';
+import Heading from "../components/Heading";
+import Container from "../components/Container";
+import { SearchTermContext } from "../context/SearchTerm";
 
 function Home() {
   const { searchTerm } = useContext(SearchTermContext);
@@ -30,24 +31,24 @@ function Home() {
 
   return (
     <Container>
-      <div className='home'>
+      <div className="home">
         <Heading>WeatherNow</Heading>
 
-        {data?.cod === '404' ? (
-          <h3 className='error' style={{ animation: 'error 1s alternate' }}>
+        {data?.cod === "404" ? (
+          <h3 className="error" style={{ animation: "error 1s alternate" }}>
             City not found :(
           </h3>
         ) : data?.name ? (
-          <div className='weather-info'>
-            <div className='weather-info__general'>
+          <div className="weather-info">
+            <div className="weather-info__general">
               {iconUrl && (
                 <img
-                  className='weather-info__icon'
+                  className="weather-info__icon"
                   src={iconUrl}
-                  alt='Weather'
+                  alt="Weather"
                 />
               )}
-              <h1 className='weather-info__description'>
+              <h1 className="weather-info__description">
                 {data.weather[0].description &&
                   (() => {
                     const capitalized =
@@ -57,24 +58,25 @@ function Home() {
                   })()}
               </h1>
             </div>
-            <p className='weather-info__item'>
-              {data.name}, {data.sys.country}(location icon)
+            <p className="weather-info__item">
+              {data.name}, {data.sys.country}
+              <FaLocationDot />
             </p>
-            <p className='weather-info__item'>
+            <p className="weather-info__item">
               Temperature: {data.main.temp}&#8451;
             </p>
-            <p className='weather-info__item'>
+            <p className="weather-info__item">
               Min: {data.main.temp_min}&#8451;
             </p>
-            <p className='weather-info__item'>
+            <p className="weather-info__item">
               Max: {data.main.temp_max}&#8451;
             </p>
-            <p className='weather-info__item'>
+            <p className="weather-info__item">
               Humidity: {data.main.humidity}%
             </p>
           </div>
         ) : (
-          <p style={{ animation: 'error 1s alternate' }}>
+          <p style={{ animation: "error 1s alternate" }}>
             Search for your city to see the weather :)
           </p>
         )}
